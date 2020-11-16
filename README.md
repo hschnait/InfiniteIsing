@@ -5,7 +5,7 @@ For the Phase Transitions lecture by Prof. H.G. Evertz (WS2020).
 ## Compilation
 Compile with 
 
-    g++ main.cpp -o Ising -O3 -fconcepts
+    g++ main.cpp -o Ising -O3
 
 and the run the code with
 

@@ -15,9 +15,9 @@
 
 
 
-void naive_cli(auto* solver, auto cluster, auto i);
-void color_cli(auto* solver, auto cluster, auto i);
-void print_percentage(auto* l, auto c, size_t i);
+void naive_cli(const WolffSolver* solver, const WolffSolver::cluster_t& cluster, const size_t i);
+void color_cli(const WolffSolver* solver, const WolffSolver::cluster_t& cluster, const size_t i);
+void print_percentage(const WolffSolver* l, const WolffSolver::cluster_t& c, const size_t i);
 
 int main (int argc, char* argv[]) {
 	if ( argc < 2 ) {
@@ -57,7 +57,7 @@ int main (int argc, char* argv[]) {
 	return 0;
 }
 
-void naive_cli(auto* solver, auto cluster, auto i) {
+void naive_cli(const WolffSolver* solver, const WolffSolver::cluster_t& cluster, const size_t i) {
 	if ( i % 1 == 0 ) {
 		for ( int j = 0; j < 2*solver->getLattice().getGeneration() + 4; j++) {
 			std::cout << "\r\e[A";
@@ -69,7 +69,7 @@ void naive_cli(auto* solver, auto cluster, auto i) {
 	// return 0.0;
 }
 
-void color_cli(auto* solver, auto cluster, auto i) {
+void color_cli(const WolffSolver* solver, const WolffSolver::cluster_t& cluster, const size_t i) {
 	std::cout << '\n';
 	const auto& latt = solver->getLattice();
 	const auto gen = latt.getGeneration();
@@ -106,7 +106,7 @@ void color_cli(auto* solver, auto cluster, auto i) {
 	usleep(SLEEP_TIME);
 }
 
-void print_percentage(auto* l, auto c, size_t i) {
+void print_percentage(const WolffSolver* l, const WolffSolver::cluster_t& c, const size_t i) {
 	if ( i %( l->getNIterations() / 100) == 0 ) {
 		std::cout << (i*100)/l->getNIterations() << "%\n";
 	}
