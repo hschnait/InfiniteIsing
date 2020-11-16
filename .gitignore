@@ -1,0 +1,6 @@
+main
+ising
+*.dat
+.vscode
+
+.ipynb_checkpoints
